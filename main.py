@@ -39,4 +39,11 @@ js = json.dumps(p,sort_keys=True, indent=4, separators=(',', ':')).decode("unico
 ff = open("1.json","w")
 ff.write(js)
 ff.close()
+#查看返回类型
 print(type(p))
+#返回了 字典 类型
+#"words_result" 是识别的文字
+n = p["words_result"]
+
+s = n[0]
+print(s["words"])
