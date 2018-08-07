@@ -1,7 +1,7 @@
 ## -*- coding: UTF-8 -*-  
 from aip import AipOcr
 import json  
-
+import pdf_to_image
 
 """ 你的 APPID AK SK """
 APP_ID = '11581347'
@@ -23,7 +23,7 @@ options = {
 'language_type': 'CHN_ENG',  
 }  
 
-image = get_file_content('1.png')
+image = get_file_content('arduino权威指南 第4页.png')
 
 
 """ 调用通用文字识别, 图片参数为本地图片 """
