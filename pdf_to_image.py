@@ -22,6 +22,8 @@ def getPdfReader(filename):
 
   return reader
 
+
+# 第一个参数是文件名 第二个参数是第几页 第三个参数是分辨率 默认为120
 def _run_convert(filename, page, res=120):
 
   idx = page + 1
@@ -48,8 +50,10 @@ def _run_convert(filename, page, res=120):
 
   img.background_color = Color("white")
 
-  img_path = '%s%d.png' % (filename[:filename.rindex('.')], idx)
+  img_path = '%s 第%d页.png' % (filename[:filename.rindex('.')], idx)
 
   img.save(filename=img_path)
 
   img.destroy()
+
+
