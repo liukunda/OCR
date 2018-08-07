@@ -22,7 +22,7 @@ def getPdfReader(filename):
 
   return reader
 
-
+print(1)
 # 第一个参数是文件名 第二个参数是第几页 第三个参数是分辨率 默认为120
 def _run_convert(filename, page, res=120):
 
@@ -55,5 +55,5 @@ def _run_convert(filename, page, res=120):
   img.save(filename=img_path)
 
   img.destroy()
-
-
+  
+  return img_path
