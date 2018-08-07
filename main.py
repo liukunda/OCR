@@ -1,11 +1,6 @@
-# -*- coding: UTF-8 -*-  
+## -*- coding: UTF-8 -*-  
 from aip import AipOcr
 import json  
-
-
-import sys
-reload(sys)
-sys.setdefaultencoding('utf-8')
 
 
 """ 你的 APPID AK SK """
@@ -28,22 +23,35 @@ options = {
 'language_type': 'CHN_ENG',  
 }  
 
-image = get_file_content('image00003.jpg')
+image = get_file_content('1.png')
 
 
 """ 调用通用文字识别, 图片参数为本地图片 """
 p = client.basicGeneral(image)
-js = json.dumps(p,sort_keys=True, indent=4, separators=(',', ':')).decode("unicode-escape")
+#js = json.dumps(p,sort_keys=True, indent=4, separators=(',', ':')).decode("unicode-escape")
 #print(json.dumps(p).decode("unicode-escape")) 
-#print(js)
-ff = open("1.json","w")
-ff.write(js)
-ff.close()
+print()
+#ff = open("1.json","w")
+#ff.write(js)
+#ff.close()
 #查看返回类型
-print(type(p))
+#print(type(p))
 #返回了 字典 类型
 #"words_result" 是识别的文字
 n = p["words_result"]
+a = p["words_result_num"]
 
-s = n[0]
-print(s["words"])
+s = ""
+counter = 0
+while counter < a:
+    l = n[counter]
+    s = s + ( l["words"] + "\n" )
+    counter += 1
+
+#s = n[0]
+#print(s["words"])
+
+print(s)
+ff = open("文本","w")
+ff.write(s)
+ff.close()
